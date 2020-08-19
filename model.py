@@ -258,3 +258,21 @@ class FPN(SegmentationModel):
 
         self.name = "fpn-{}".format(encoder_name)
         self.initialize()
+
+def declare_model():
+    ENCODER = 'resnet34'
+    ENCODER_WEIGHTS = 'imagenet'
+    CLASSES = ['penu']
+    ACTIVATION = None # could be None for logits or 'softmax2d' for multicalss segmentation
+    DEVICE = 'cuda'
+    kwargs = {'classes': 2}
+
+    # create segmentation model with pretrained encoder
+    model = FPN(
+        encoder_name=ENCODER, 
+        encoder_weights=ENCODER_WEIGHTS, 
+        classes=len(CLASSES), 
+        activation=ACTIVATION,
+    #     aux_params= kwargs
+    )
+    return model

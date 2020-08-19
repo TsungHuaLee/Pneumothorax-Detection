@@ -104,9 +104,13 @@ if __name__ == "__main__":
     print("Model Loading...")
     try:
         if isGPU:
-            best_model = torch.load(model)
+            best_model = declare_model()
+            best_model.load_state_dict(torch.load(model))
+            best_model.cuda()
         else:
-            best_model = torch.load(model, map_location=torch.device('cpu'))
+            best_model = declare_model()
+            best_model.load_state_dict(torch.load(model))
+            best_model.cpu()
     except:
         status_code = '1.2.1'
         record(prob_info, status_code)
