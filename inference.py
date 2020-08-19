@@ -74,11 +74,10 @@ if __name__ == "__main__":
     input_path = '{}/{}'.format(inputs_folder, input_path)
     output_path = '{}/{}'.format(outputs_folder, image_name)
     prob_info = '{}.txt'.format(output_path)
-    
     info = 'Input: {}\n'\
            'Output: {}\n' \
            'Using GPU: {}'.format(input_path, output_path, isGPU)
-
+    print(info)
     DEVICE = 'cuda' if isGPU else 'cpu'
     print("Loading Model ...")
     print("Data Loading and Preprocessing...")

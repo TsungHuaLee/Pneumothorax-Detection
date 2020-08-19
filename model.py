@@ -270,7 +270,6 @@ def declare_model():
     # create segmentation model with pretrained encoder
     model = FPN(
         encoder_name=ENCODER, 
-        encoder_weights=ENCODER_WEIGHTS, 
         classes=len(CLASSES), 
         activation=ACTIVATION,
     #     aux_params= kwargs
